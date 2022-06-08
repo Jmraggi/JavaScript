@@ -23,7 +23,7 @@ function calculoCuotas(){
                 break;
 
             case "12":
-                doceCuotas = (precioCosto / 6) * 1.30;
+                doceCuotas = (precioCosto / 12) * 1.30;
                 alert("El valor de las cuotas es: " + doceCuotas);
                 break;
 
