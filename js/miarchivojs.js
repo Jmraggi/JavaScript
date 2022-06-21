@@ -1,9 +1,34 @@
-precioCosto = 15000;
+precioCosto = 1000;
 precio = precioCosto.toFixed(2);
+stock = parseInt(15);
+
+
+//Objeto producto
+
+function Mate(precio,stock,descripcion){
+    this.precio = precio;
+    this.stock = stock;
+    this.descripcion = descripcion;
+    this.vender = function venta(){
+        this.stock--; return this;
+    }
+}
+const mateAlpaca = new Mate (1500, 10,"mate de buena calidad");
+const mateCuerno = new Mate (800, 10,"mate de calidad media");
+const mateTapa = new Mate (3000, 10,"mate de muy buena calidad");
+const mateUru = new Mate (1000, 10,"mate normal");
+
+
+var lista = [];
+lista.push(mateAlpaca);
+lista.push(mateCuerno);
+lista.push(mateTapa);
+lista.push(mateUru);
+console.log(lista);
+
 
 
 //Calcular el producto en cuotas
-
 function calculoCuotas(){
 
     let entrada = prompt("Ingrese la cantidad de cuotas (3/6/12), para salir escribir ESC");
@@ -38,9 +63,7 @@ function calculoCuotas(){
 
 }
 
-
 //Arturito te da plata
-
 function prestamista(){
     prestamo = parseInt(prompt("Humano por favor, cuando deseas que te preste?: "));
     
@@ -54,15 +77,10 @@ function prestamista(){
     alert("Las cuotas fijas en un año seran de: " + cuotas);
 }
 
-
-
 //Agregarle IVA al producto
-
-
 function ivaProducto (precioCosto) {
     return (precioCosto * 0.21)
 }
-
 function mostrarIva(){
 
     var iva = ivaProducto(precioCosto);
@@ -75,4 +93,6 @@ function mostrarIva(){
   alert("El IVA del producto es: " + ivaM);
   alert("El precio final del producto: " + conIvaInclu);
 }
+
+//Ver STOCK
 
