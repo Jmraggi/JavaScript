@@ -5,18 +5,21 @@ stock = parseInt(15);
 
 //Objeto producto
 
-function Mate(precio,stock,descripcion){
+function Mate(titulo,precio,stock,descripcion){
+    this.titulo = titulo;
     this.precio = precio;
     this.stock = stock;
     this.descripcion = descripcion;
-    this.vender = function venta(){
-        this.stock--; return this;
+    this.vender = function(cantidadAVender){
+        this.stock = this.stock - cantidadAVender;
     }
 }
-const mateAlpaca = new Mate (1500, 10,"mate de buena calidad");
-const mateCuerno = new Mate (800, 10,"mate de calidad media");
-const mateTapa = new Mate (3000, 10,"mate de muy buena calidad");
-const mateUru = new Mate (1000, 10,"mate normal");
+
+//instancio el objeto
+const mateAlpaca = new Mate ("Mate Alpaca", 1500, 10,"mate de buena calidad");
+const mateCuerno = new Mate ("Mate Cuerno", 800, 10,"mate de calidad media");
+const mateTapa = new Mate ("Mate Tapa", 3000, 10,"mate de muy buena calidad");
+const mateUru = new Mate ("Mate Uruguayo", 1000, 10,"mate normal");
 
 
 var lista = [];
@@ -26,7 +29,21 @@ lista.push(mateTapa);
 lista.push(mateUru);
 console.log(lista);
 
+var cantidadAVender = parseInt(prompt("seleccione cantidad de mates que quieras comprar"));
+var nombreMate = "Mate Alpaca";
 
+//Descontar de stock la cantidad de mates.
+function descontar(mateAVender,cantidadAVender){
+    
+    for (var i = 0; i < lista.length-1 ; i++){ //reservado length para cantidad de elementos de la lista
+        var elemento = lista[i]; // guardo el elemento I (lo que recorro)
+        if(elemento.titulo == mateAVender){
+            elemento.vender(cantidadAVender);
+            alert("La cantidad de mates restantes es de: " + parseInte(elemento));
+        }
+    }
+}
+descontar(nombreMate, cantidadAVender); //llamando a la funcion
 
 //Calcular el producto en cuotas
 function calculoCuotas(){
