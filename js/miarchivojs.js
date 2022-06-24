@@ -39,7 +39,7 @@ function descontar(mateAVender,cantidadAVender){
         var elemento = lista[i]; // guardo el elemento I (lo que recorro)
         if(elemento.titulo == mateAVender){
             elemento.vender(cantidadAVender);
-            alert("La cantidad de mates restantes es de: " + parseInte(elemento));
+            console.log(elemento);
         }
     }
 }
