@@ -3,23 +3,47 @@ precio = precioCosto.toFixed(2);
 stock = parseInt(15);
 
 
-//Objeto producto
+//MENSAJE DE BIENVENIDA 
 
-function Mate(titulo,precio,stock,descripcion){
+//variables4
+var tiempo=3000
+var saludos=new Array(4)
+saludos[0]="Los mejores mates de la costa"
+saludos[1]="Bienvenidos a mateMania"
+saludos[2]="Nose que decir"
+saludos[3]="Comprando el mate te regalamos la bombilla"
+var indice_saludos=0
+
+//funcion
+function cambiar_saludos(){
+    if (indice_saludos>=saludos.length)
+    indice_saludos=0
+    document.getElementById("contenedorjs").innerHTML=saludos[indice_saludos]
+    indice_saludos++
+    setTimeout("cambiar_saludos()",tiempo)
+}
+document.write('<div id="contenedorjs"></div>')
+
+
+
+
+//Objeto producto
+function Mate(titulo,precio,stock,descripcion,img){
     this.titulo = titulo;
     this.precio = precio;
     this.stock = stock;
     this.descripcion = descripcion;
+    this.img = img;
     this.vender = function(cantidadAVender){
         this.stock = this.stock - cantidadAVender;
     }
 }
 
 //instancio el objeto
-const mateAlpaca = new Mate ("Mate Alpaca", 1500, 10,"mate de buena calidad");
-const mateCuerno = new Mate ("Mate Cuerno", 800, 10,"mate de calidad media");
-const mateTapa = new Mate ("Mate Tapa", 3000, 10,"mate de muy buena calidad");
-const mateUru = new Mate ("Mate Uruguayo", 1000, 10,"mate normal");
+const mateAlpaca = new Mate ("Mate Alpaca", 1500, 10,"mate de buena calidad","Fotos/mateAlpaca.jpg");
+const mateCuerno = new Mate ("Mate Cuerno", 800, 10,"mate de calidad media","Fotos/mateCuerno.jpg");
+const mateTapa = new Mate ("Mate Tapa", 3000, 10,"mate de muy buena calidad","Fotos/mateTapa.jpg");
+const mateUru = new Mate ("Mate Uruguayo", 1000, 10,"mate normal","Fotos/mateUru.jpg");
 
 
 var lista = [];
@@ -111,5 +135,6 @@ function mostrarIva(){
   alert("El precio final del producto: " + conIvaInclu);
 }
 
-//Ver STOCK
+
+
 
