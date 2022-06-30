@@ -4,7 +4,6 @@ stock = parseInt(15);
 
 
 //MENSAJE DE BIENVENIDA 
-
 //variables4
 var tiempo=3000
 var saludos=new Array(4)
@@ -23,6 +22,15 @@ function cambiar_saludos(){
     setTimeout("cambiar_saludos()",tiempo)
 }
 document.write('<div id="contenedorjs"></div>')
+
+//PRACTICANDO CALCULADORA CON EVENTOS
+
+function calcula(operacion){ 
+   	var operando1 = document.calculadora.operando1.value 
+   	var operando2 = document.calculadora.operando2.value 
+   	var result = eval(operando1 + operacion + operando2) 
+   	document.calculadora.resultado.value = result 
+} 
 
 
 
