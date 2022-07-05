@@ -9,6 +9,12 @@ const productos = [
     {id:3, nombre: "Uruguayo", precio: 2500, img: "../src/media/mateUru.png"},
 ]
 
+//PopPup iva
+function mostrarPrecioConIva(precio){
+  let precioFinal = precio * 1.21;
+  alert("El precio es " + precioFinal);
+}
+
 //Carrito
 const carrito = []
 
@@ -30,6 +36,7 @@ productos.forEach(producto => {
         <div class="card-body">
             <h5 class="card-title">${producto.nombre}</h5>
             <p class="card-text fs-3">$${producto.precio}</p>
+            <button id="compra" onclick="mostrarPrecioConIva(${producto.precio})" class="btn btn-primary">Precio Con Iva</button>
             <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
         </div>
     </div>
@@ -39,29 +46,44 @@ productos.forEach(producto => {
 
 //----------------NAVBAR-----------------------
 
+var tiempo=3000
+var saludos=new Array(4)
+saludos[0]="Los mejores mates de la costa"
+saludos[1]="Bienvenidos a mateMania"
+saludos[2]="Nose que decir"
+saludos[3]="Comprando el mate te regalamos la bombilla"
+var indice_saludos=0
+
+function cambiar_saludos(){
+  $("div.saludos").remove();
+  if (indice_saludos>=saludos.length-1)
+  indice_saludos=0
+  indice_saludos++
+  setTimeout("cambiar_saludos()",tiempo)
+  var container = document.getElementsByClassName("saludo");
+  var saludo = document.createElement("div");
+  saludo.classList.add("saludos");
+  saludo.innerHTML = `
+    <p>${saludos[indice_saludos]}</p>
+  `;
+  container[0].appendChild(saludo)
+}
+
+
 //----------FUNCIONES DEL PROYECTO-------------
 
 const compra = (x) => {
 carrito.push(productos[x])
+$("div.carro").remove();
 carrito.forEach(producto => {
-    let table = document.createElement("div")
+    let table = document.createElement("div");
+    table.classList.add("carro");
+    table.innerHTML = "";
     table.innerHTML = `
-    <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
                 <th>${producto.nombre}</th>
                 <th>${producto.precio}</th>
-            </tr>
-          </tbody>
-    </div>
-    `
-    listaCarrito.append(table)
+
+    `;
+    listaCarrito.appendChild(table)
 })}
 
