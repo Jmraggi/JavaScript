@@ -2,12 +2,18 @@
 
 //Mates
 
+
+//Aca aplico desestructuracion
 const productos = [
     {id:0, nombre: "Alpaca", precio: 1500, img: "src/media/mateAlpaca.jpg"},   
     {id:1, nombre: "Cuerno", precio: 500, img: "src/media/mateCuerno.jpg"},
     {id:2, nombre: "Tapa", precio: 4000, img: "src/media/mateTapa.jpg"},  
     {id:3, nombre: "Uruguayo", precio: 2500, img: "src/media/mateUru.png"},
 ]
+
+//Para utilizar spread, me parece bueno para testear tus objetos
+
+console.log(...productos)
 
 //PopPup iva
 function mostrarPrecioConIva(precio){
