@@ -15,11 +15,7 @@ const productos = [
 
 console.log(...productos)
 
-//PopPup iva
-function mostrarPrecioConIva(precio){
-  let precioFinal = precio * 1.21;
-  alert("El precio es " + precioFinal);
-}
+
 
 //Carrito
 const carrito = []
@@ -42,7 +38,6 @@ productos.forEach(producto => {
         <div class="card-body">
             <h5 class="card-title">${producto.nombre}</h5>
             <p class="card-text fs-3">$${producto.precio}</p>
-            <button id="compra" onclick="mostrarPrecioConIva(${producto.precio})" class="btn btn-primary">Precio Con Iva</button>
             <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
         </div>
     </div>
@@ -90,6 +85,9 @@ carrito.forEach(producto => {
                 <th>${producto.precio}</th>
 
     `;
+    swal.fire({
+      title:'Agregado al carrito'
+    })
     listaCarrito.appendChild(table)
 })}
 
