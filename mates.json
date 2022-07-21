@@ -1,0 +1,16 @@
+
+[
+     {"id":0, "nombre": "Alpaca", "precio": 1500, "calidad": "Bueno" , "img": "src/media/mateAlpaca.jpg"},   
+     {"id":1, "nombre": "Cuerno", "precio": 2000, "calidad": "Bueno", "img": "src/media/mateCuerno.jpg"},
+     {"id":2, "nombre": "Tapa", "precio": 4000, "calidad": "Bueno", "img": "src/media/mateTapa.jpg"},  
+     {"id":3, "nombre": "Uruguayo", "precio": 2500, "calidad": "Bueno", "img": "src/media/mateUru.png"},
+     {"id":4, "nombre": "Listo", "precio": 500, "calidad": "Economico", "img": "src/media/mateListo.jpg"},
+     {"id":5, "nombre": "Stanley", "precio": 5000, "calidad": "Premium", "img": "src/media/mateStanley.jpg"},
+     {"id":6, "nombre": "Calabaza", "precio": 500, "calidad": "Economico", "img": "src/media/mateCalabaza.jpg"},
+     {"id":7, "nombre": "Frases", "precio": 500, "calidad": "Economico", "img": "src/media/mateFrase.jpg"},
+     {"id":8, "nombre": "Plastico", "precio": 100, "calidad": "Economico", "img": "src/media/mateCalabaza.jpg"},
+     {"id":9, "nombre": "Premium", "precio": 4500, "calidad": "Premium", "img": "src/media/matePremium.jpg"},
+     {"id":10, "nombre": "Madera", "precio": 500, "calidad": "Economico", "img": "src/media/mateMadera.jpg"}
+]
+
+

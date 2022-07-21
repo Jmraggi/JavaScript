@@ -1,20 +1,5 @@
 //----------------ARRAYS-----------------------
 
-//Mates
-
-
-//Aca aplico desestructuracion
-const productos = [
-    {id:0, nombre: "Alpaca", precio: 1500, img: "src/media/mateAlpaca.jpg"},   
-    {id:1, nombre: "Cuerno", precio: 500, img: "src/media/mateCuerno.jpg"},
-    {id:2, nombre: "Tapa", precio: 4000, img: "src/media/mateTapa.jpg"},  
-    {id:3, nombre: "Uruguayo", precio: 2500, img: "src/media/mateUru.png"},
-]
-
-//Para utilizar spread, me parece bueno para testear tus objetos
-
-console.log(...productos)
-
 
 
 //Carrito
@@ -24,14 +9,15 @@ let listaCarrito = document.getElementById("listaCarrito")
 let valorFinal = document.getElementById("precio")
 
 
-//----------------DOM--------------------------
+const lista = document.querySelector("#listado")
 
-//-----------------Carta de Productos----------
-let cards = document.getElementById("cartaProducto")
+fetch("./mates.json")
+.then ( (res) => res.json())
+.then ( (data) =>{
 
-productos.forEach(producto => {
+  data.forEach((producto) => {
     let card = document.createElement("div")
-    card.className = "col-sm-3"
+    card.className = "col-sm-3 py-5"
     card.innerHTML = `
     <div class="card border-dark text-center" style="width: 18rem;">
       <img src="${producto.img}" class="img-thumbnail" alt="..">
@@ -44,6 +30,29 @@ productos.forEach(producto => {
     `
     cards.append(card)
 });
+
+})
+
+//----------------DOM--------------------------
+
+//-----------------Carta de Productos----------
+let cards = document.getElementById("cartaProducto")
+
+// productos.forEach(producto => {
+//     let card = document.createElement("div")
+//     card.className = "col-sm-3"
+//     card.innerHTML = `
+//     <div class="card border-dark text-center" style="width: 18rem;">
+//       <img src="${producto.img}" class="img-thumbnail" alt="..">
+//         <div class="card-body">
+//             <h5 class="card-title">${producto.nombre}</h5>
+//             <p class="card-text fs-3">$${producto.precio}</p>
+//             <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
+//         </div>
+//     </div>
+//     `
+//     cards.append(card)
+// });
 
 //----------------NAVBAR-----------------------
 
@@ -69,7 +78,6 @@ function cambiar_saludos(){
   `;
   container[0].appendChild(saludo)
 }
-
 
 //----------FUNCIONES DEL PROYECTO-------------
 
