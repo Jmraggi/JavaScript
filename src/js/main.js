@@ -1,8 +1,5 @@
-//----------------ARRAYS-----------------------
 
-
-
-//Carrito
+//------------------ DECLARACION DE VARIABLES -----------------------
 const carrito = []
 
 let listaCarrito = document.getElementById("listaCarrito")
@@ -11,6 +8,11 @@ let valorFinal = document.getElementById("precio")
 
 const lista = document.querySelector("#listado")
 let productos = []
+
+let cards = document.getElementById("cartaProducto")
+
+
+//-----------------   CARTAS DE PRODUCTOS   ----------
 
 $( document ).ready(function() {
 
@@ -38,35 +40,13 @@ $( document ).ready(function() {
     })
 });
 
-
-//----------------DOM--------------------------
-
-//-----------------Carta de Productos----------
-let cards = document.getElementById("cartaProducto")
-
-// productos.forEach(producto => {
-//     let card = document.createElement("div")
-//     card.className = "col-sm-3"
-//     card.innerHTML = `
-//     <div class="card border-dark text-center" style="width: 18rem;">
-//       <img src="${producto.img}" class="img-thumbnail" alt="..">
-//         <div class="card-body">
-//             <h5 class="card-title">${producto.nombre}</h5>
-//             <p class="card-text fs-3">$${producto.precio}</p>
-//             <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
-//         </div>
-//     </div>
-//     `
-//     cards.append(card)
-// });
-
-//----------------NAVBAR-----------------------
+//---------------- SALUDOS ACTUALIZANDO -----------------------
 
 var tiempo=3000
 var saludos=new Array(4)
 saludos[0]="Los mejores mates de la costa"
 saludos[1]="Bienvenidos a mateMania"
-saludos[2]="Nose que decir"
+saludos[2]="Solo brindamos calidad"
 saludos[3]="Comprando el mate te regalamos la bombilla"
 var indice_saludos=0
 
@@ -85,7 +65,7 @@ function cambiar_saludos(){
   container[0].appendChild(saludo)
 }
 
-//----------FUNCIONES DEL PROYECTO-------------
+//----------FUNCION DE COMPRA -------------
 
 const compra = (x) => {
 carrito.push(productos[x])
@@ -106,7 +86,7 @@ carrito.forEach(producto => {
 })}
 
 
-//--------------CALIFICACIONES-----------------
+//--------------CALIFICACIONES EN LOCAL STORAGE-----------------
 
 class Opiniones {
   constructor(nombre, puntaje,opinion) {
@@ -161,7 +141,6 @@ containerOpiniones.innerHTML = "";
           <p class="card-text">${el.puntaje}</p>
           <p class="card-text">${el.opinion}</p>
           <button type="button" class="btn btn-danger btn_eliminar">Borrar</button>
-          <button type="button" class="btn btn-primary btn_actualizar">Actualizar</button>
           </div>
         </div>                
       </div>
@@ -171,7 +150,6 @@ containerOpiniones.innerHTML = "";
   )
 
   eliminar()
-  actualizar()
 }
 
 const eliminar = () => {
@@ -185,23 +163,6 @@ const eliminar = () => {
       nodo.remove()
     })
   }
-}
-
-const actualizar = () => {
-  let btnActualizar = document.querySelectorAll(".btn_actualizar");
-  for (const btn of btnActualizar) {
-    btn.addEventListener("click", (e) => {
-        bandera = true;
-        let nodo = e.path[2];
-        console.log(e.path);
-        let buscar = arrayOpinion.find( el => el.nombre == nodo.id);
-        console.log(nodo);
-        document.getElementById("nombre").value = buscar.nombre;
-        document.getElementById("puntaje").value = buscar.puntaje;
-        document.getElementById("opinion").value = buscar.opinion;
-    })
-  }
-
 }
 
 const editarCampos = () => {
