@@ -10,7 +10,8 @@
      {"id":7, "nombre": "Frases", "precio": 500, "calidad": "Economico", "img": "src/media/mateFrase.jpg"},
      {"id":8, "nombre": "Plastico", "precio": 100, "calidad": "Economico", "img": "src/media/mateCalabaza.jpg"},
      {"id":9, "nombre": "Premium", "precio": 4500, "calidad": "Premium", "img": "src/media/matePremium.jpg"},
-     {"id":10, "nombre": "Madera", "precio": 500, "calidad": "Economico", "img": "src/media/mateMadera.jpg"}
+     {"id":10, "nombre": "Madera", "precio": 500, "calidad": "Economico", "img": "src/media/mateMadera.jpg"},
+     {"id":10, "nombre": "Ceramica", "precio": 700, "calidad": "Economico", "img": "src/media/mateCeramica.jpg"}
 ]
 
 

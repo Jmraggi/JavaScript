@@ -10,28 +10,34 @@ let valorFinal = document.getElementById("precio")
 
 
 const lista = document.querySelector("#listado")
+let productos = []
 
-fetch("./mates.json")
-.then ( (res) => res.json())
-.then ( (data) =>{
+$( document ).ready(function() {
 
-  data.forEach((producto) => {
-    let card = document.createElement("div")
-    card.className = "col-sm-3 py-5"
-    card.innerHTML = `
-    <div class="card border-dark text-center" style="width: 18rem;">
-      <img src="${producto.img}" class="img-thumbnail" alt="..">
-        <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p class="card-text fs-3">$${producto.precio}</p>
-            <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
-        </div>
-    </div>
-    `
-    cards.append(card)
+  fetch("./mates.json")
+  .then ( (res) => res.json())
+  .then ( (data) =>{
+    productos = data;
+
+    data.forEach((producto) => {
+      let card = document.createElement("div")
+      card.className = "col-sm-3 py-5"
+      card.innerHTML = `
+      <div class="card border-dark text-center" style="width: 18rem;">
+        <img src="${producto.img}" class="img-thumbnail" alt="..">
+          <div class="card-body">
+              <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text fs-3">$${producto.precio}</p>
+              <button id="compra" onclick="compra(${producto.id})" class="btn btn-primary">Comprar</button>
+          </div>
+      </div>
+      `
+      cards.append(card)
+    });
+    
+    })
 });
 
-})
 
 //----------------DOM--------------------------
 
