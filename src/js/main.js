@@ -4,6 +4,7 @@ const carrito = []
 
 let listaCarrito = document.getElementById("listaCarrito")
 let valorFinal = document.getElementById("precio")
+let valorTotal = document.getElementById("precioFinal")
 
 
 const lista = document.querySelector("#listado")
@@ -37,6 +38,8 @@ nav.innerHTML=`
       </div>
     </nav>
 `
+
+
 
 
 //-----------------   CARTAS DE PRODUCTOS   ----------
@@ -101,6 +104,7 @@ const compra = (x) => {
 carrito.push(productos[x])
 $("div.carro").remove();
 
+
 let total = carrito.reduce((acc, item)=>{
   return acc + item.precio}, 0)
 
@@ -128,7 +132,13 @@ carrito.forEach(producto => {
       title:'Agregado al carrito'
     })
     listaCarrito.appendChild(table)
-})}
+});
+
+//Renderizado del total de la compra
+valorTotal.innerHTML=`
+<h2 style="color: black;">Total de compra = $${total}</h2>
+`
+}
 
 
 
