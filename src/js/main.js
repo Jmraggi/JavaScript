@@ -12,6 +12,33 @@ let productos = []
 let cards = document.getElementById("cartaProducto")
 
 
+
+
+//--------------NAVBAR--------------------
+let nav = document.getElementById("nav")
+nav.innerHTML=`
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark pt-3">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="#"><img img src="src/media/mate.png" width="38" height="30" class="me-3" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        </div>
+        <div class="me-5">
+          <button class="btn btn-primary position-relative">
+          <i class="fa fa-shopping-cart" style="font-size:30px; color: #ffffff;"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            0
+          </span>
+        </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+`
+
+
 //-----------------   CARTAS DE PRODUCTOS   ----------
 
 $( document ).ready(function() {
@@ -39,6 +66,9 @@ $( document ).ready(function() {
     
     })
 });
+
+
+
 
 //---------------- SALUDOS ACTUALIZANDO -----------------------
 
@@ -70,20 +100,37 @@ function cambiar_saludos(){
 const compra = (x) => {
 carrito.push(productos[x])
 $("div.carro").remove();
+
+let total = carrito.reduce((acc, item)=>{
+  return acc + item.precio}, 0)
+
 carrito.forEach(producto => {
     let table = document.createElement("div");
     table.classList.add("carro");
     table.innerHTML = "";
     table.innerHTML = `
-                <th>${producto.nombre}</th>
-                <th>${producto.precio}</th>
-
-    `;
+    <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${producto.img}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="color: black;">
+        <h2 class="card-title">${producto.nombre}</h2>
+        <p class="card-text" style="font-size: 15px;">Calidad: ${producto.calidad}</p>
+        <p class="card-text" style="font-size: 15px;">Precio: $${producto.precio}</p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
     swal.fire({
       title:'Agregado al carrito'
     })
     listaCarrito.appendChild(table)
 })}
+
+
 
 
 //--------------CALIFICACIONES EN LOCAL STORAGE-----------------
