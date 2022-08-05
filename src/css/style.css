@@ -2,11 +2,14 @@
     background-image: url(../media/fondo.jpg);
 }
 
-
-#tablaCarrito{
-    background-color: rgba(242, 255, 255, 0.778);
+#carrito{
+    background-color: rgba(102, 103, 103, 0.778);
+    width: 30vw;
+    position:absolute;
+    top: 15;
+    right: 0;
+    z-index: 1;
 }
-
 
 .tituloCarrito{
     display: flex;
